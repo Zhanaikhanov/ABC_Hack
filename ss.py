@@ -73,7 +73,6 @@ def auth(user1, token_from_usb, token_from_arduino):
 
 
 def usb_available():
-	return True
 	try:
 		x = check_output(['lsusb','-d','8564:1000'])
 		print("usb available...")		
@@ -158,7 +157,8 @@ try:
 			lock_screen = True
 			continue
 
-	
+# 		/home/djangoman/token it must be a path to the flash device like /media/FLASH_DEVICE/token .
+# 		Unfortunately I don't have the flash device for now, yet.
 		token_u = subprocess.check_output(['cat','/home/djangoman/token']).decode('ascii').strip()
 		access = auth("djangoman", token_u, token_a)
 
